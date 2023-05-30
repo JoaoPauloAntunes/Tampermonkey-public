@@ -26,8 +26,7 @@
     }
 
     function blurChatHistory() {
-        const items = Array.from(document.querySelectorAll('div.flex-col ol li'));
-        items.map(i => {
+        Array.from(document.querySelectorAll('div.flex-col ol li')).map(i => {
             i.style.cssText = "font-size: 40px; color: transparent; text-shadow: 0 0 8px #000;";
             i.addEventListener('mouseover', () => {
                 Array.from(i.parentElement.parentElement.parentElement.querySelectorAll('li')).map(j => {
@@ -48,7 +47,7 @@
     function observeChanges() {
         // Function to monitor changes in the specific element
 
-        // Get the element you want to observe
+        // Get the elements to observed
         const elements = Array.from(document.querySelectorAll('div.flex-col ol'));
         console.log('elements:', elements);
 
@@ -73,7 +72,7 @@
             // Observe changes in the element
             elements.map(i => observer.observe(i, { childList: true }));
         } else {
-            console.log('Element not found');
+            console.log('No element found');
         }
     }
 })();
