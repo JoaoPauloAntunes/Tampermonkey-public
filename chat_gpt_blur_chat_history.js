@@ -20,7 +20,7 @@
 
 
     function removeBlurChatHistory($chatHistory) {
-        Array.from($chatHistory.querySelectorAll('div.flex-col ol li')).map(i => {
+        Array.from($chatHistory.querySelectorAll('li')).map(i => {
             i.style.cssText = ""; // Remove the blur
             return null;
         });
@@ -28,22 +28,21 @@
 
 
     function applyBlurChatHistory($chatHistory) {
-        Array.from($chatHistory.querySelectorAll('div.flex-col ol li')).map(i => {
+        Array.from($chatHistory.querySelectorAll('li')).map(i => {
             i.style.cssText = "font-size: 40px; color: transparent; text-shadow: 0 0 8px #000;"; // Apply blur
             return null;
         });
     }
 
-    
     await delay(2000); // 2 seconds
-    const $chatHistory = document.querySelector('#__next > div.overflow-hidden.w-full.h-full.relative.flex.z-0 > div.dark.flex-shrink-0.overflow-x-hidden.bg-gray-900 > div > div > div > nav');
+    const $chatHistory = document.querySelector('nav');
     applyBlurChatHistory($chatHistory);
 
     $chatHistory.addEventListener('mouseover', () => {
         removeBlurChatHistory($chatHistory);
     });
 
-    document.querySelector('body').addEventListener('mouseout', () => {
+    $chatHistory.addEventListener('mouseout', () => {
         applyBlurChatHistory($chatHistory);
     });
 })();
