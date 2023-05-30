@@ -18,6 +18,7 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+
     function blurChatHistory() {
         Array.from(document.querySelectorAll('div.flex-col ol li')).map(i => {
             i.style.cssText = "font-size: 40px; color: transparent; text-shadow: 0 0 8px #000;";
@@ -36,6 +37,7 @@
             return null;
         });
     }
+
 
     function observeChanges() {
         // Function to monitor changes in the specific element
