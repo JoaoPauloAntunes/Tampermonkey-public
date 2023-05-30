@@ -14,9 +14,9 @@
     'use strict';
 
     (async () => {
-        // Call the function to start monitoring the changes
         await delay(2000); // 2 seconds
         blurChatHistory();
+        // Call the function to start monitoring the changes
         observeChanges();
     })();
 
