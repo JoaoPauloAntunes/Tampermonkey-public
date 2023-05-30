@@ -10,17 +10,10 @@
 // @run-at document-end
 // ==/UserScript==
 
-(function () {
+(async function () {
     'use strict';
 
-    (async () => {
-        await delay(2000); // 2 seconds
-        blurChatHistory();
-        // Call the function to start monitoring the changes
-        observeChanges();
-    })();
-
-
+ 
     async function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -75,4 +68,10 @@
             console.log('No element found');
         }
     }
+
+
+    await delay(2000); // 2 seconds
+    blurChatHistory();
+    // Call the function to start monitoring the changes
+    observeChanges();
 })();
